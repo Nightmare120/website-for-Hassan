@@ -1,0 +1,36 @@
+import ButtonPrimary, { ButtonRed } from "../Button";
+import { UilTrash } from "@iconscout/react-unicons";
+
+export default function DataColumn({ serialno, name, date, conversation }) {
+    return (
+        <tr
+            className={`p-4 dark:text-slate-400  ${
+                serialno % 2 === 0
+                    ? "bg-slate-300 dark:bg-slate-800"
+                    : "bg-transparent"
+            }`}
+        >
+            <td className="border-2 dark:border-slate-700 py-2 px-3">
+                {serialno}
+            </td>
+            <td className="border-2 dark:border-slate-700 py-2 px-3">{name}</td>
+            <td className="border-2 dark:border-slate-700 py-2 px-3">{date}</td>
+            <td className="border-2 dark:border-slate-700 py-2 px-3">
+                {conversation}
+            </td>
+            <td className="border-2 dark:border-slate-700 py-2 px-3 ">
+                <span className="flex flex-col justify-center items-center text-center w-full">
+                    {" "}
+                    <ButtonPrimary>View Conversation</ButtonPrimary>
+                </span>
+            </td>
+            <td className="border-2 dark:border-slate-700 py-2 px-3 ">
+                <span className="flex flex-col justify-center items-center text-center w-full">
+                    <ButtonRed>
+                        <UilTrash />
+                    </ButtonRed>
+                </span>
+            </td>
+        </tr>
+    );
+}
